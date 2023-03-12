@@ -19,6 +19,7 @@ CREATE TABLE temporary_users (
   id VARCHAR(30) NOT NULL,
   user_id VARCHAR(30) NOT NULL,
   user_name VARCHAR(30),
+  room_id VARCHAR(50) NOT NULL,
   user_type VARCHAR(1) NOT NULL DEFAULT 'T',
   createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY (id),
