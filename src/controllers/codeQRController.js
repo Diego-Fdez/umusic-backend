@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+//It takes a token and an id, and returns a QR code
 export const generateQR = async (req, res) => {
   const { token, id } = req.body;
 
