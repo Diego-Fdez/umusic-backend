@@ -12,12 +12,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //cors configuration
-const whitelist = [process.env.FRONTEND_URL, process.env.DB_HOST];
+const whitelist = [process.env.FRONTEND_URL];
 
 /* A function that checks if the origin is in the whitelist. */
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -33,15 +33,7 @@ app.use((req, res, next) => {
 });
 
 /* A middleware that enables cors. */
-app.use(
-  cors({
-    corsOptions,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    origin: '*',
-  })
-);
+app.use(cors(corsOptions));
 
 app.use('/api/v1', userRoutes);
 app.use('/api/v1', roomsRoutes);
