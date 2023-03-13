@@ -12,15 +12,15 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //cors configuration
-const whitelist = [process.env.FRONTEND_URL];
+const whitelist = [process.env.FRONTEND_URL, process.env.DB_HOST];
 
 /* A function that checks if the origin is in the whitelist. */
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.includes(origin)) {
+    if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error('Cors error'));
+      callback(new Error('Not allowed by CORS'));
     }
   },
 };
