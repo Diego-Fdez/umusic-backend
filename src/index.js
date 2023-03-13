@@ -25,6 +25,12 @@ const corsOptions = {
   },
 };
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+});
+
 /* A middleware that enables cors. */
 app.use(cors(corsOptions));
 
