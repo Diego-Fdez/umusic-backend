@@ -90,7 +90,7 @@ const temporaryUserLogin = async (temporaryUserId) => {
       }
     );
 
-    return { temporary_token: token, userInfo: rows[0] };
+    return { music_token: token, userInfo: rows[0] };
   } catch (error) {
     throw error;
   }
