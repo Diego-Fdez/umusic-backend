@@ -7,7 +7,7 @@ dotenv.config();
 export const generateQR = async (req, res) => {
   const { token, id } = req.body;
 
-  const data = `${process.env.FRONTEND_URL}/verify/token=${token}&id=${id}`;
+  const data = `${process.env.FRONTEND_URL}/tempauth/${id}/${token}`;
 
   try {
     const result = await QRCode.toDataURL(data);
