@@ -62,3 +62,11 @@ CREATE TABLE rooms (
 
 ALTER TABLE rooms add FOREIGN KEY (video_id) REFERENCES videos (id);
 ALTER TABLE rooms add FOREIGN KEY (user_id) REFERENCES users (id);
+
+CREATE TABLE categories (
+  id INT NOT NULL AUTO_INCREMENT,
+  category_name VARCHAR(100) NOT NULL,
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY (id),
+  PRIMARY KEY (id)
+);
